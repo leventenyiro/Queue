@@ -1,22 +1,41 @@
 #include <iostream>
+#include "queue.h"
 #include "E2.h"
 
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    E2 l = E2();
-    
-    E2 e1 = E2();
-    e1.key = 5;
-    follow(&l, &e1);
-    
-    /*E2 *e2();
-    e2->key = 3;
-    follow(e1, e2);*/
+int main(int argc, char const *argv[]) {   
+    Queue q = Queue();
 
-    //write(l);
-    cout << l.next->next->key << endl;
-    
+    q.add(6);
+    q.add(7);
+
+    cout << q << endl;
+
+    q.setEmpty();
+
+    q.add(34);
+    q.add(35);
+    cout << q.length() << endl;
+
+    cout << q.first() << endl;
+
+    cout << q << endl;
+
+    q.rem();
+
+    cout << q << endl;
+
+    q.setEmpty();
+
+    cout << q.length() << endl;
+    q.add(5);
+    cout << q.length() << endl;
+
+    q.~Queue();
+
+    q.add(5);
+    cout << q << endl;
+
     return 0;
 }

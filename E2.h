@@ -1,16 +1,17 @@
-#include <iostream>
+#pragma once
 
+#include <iostream>
 using namespace std;
 
 class E2 {
     public:
-        E2 () {
+        int key;
+        E2 *next;
+        E2 *prev;
+        E2() {
             next = this;
             prev = this;
         }
-        int key;
-        E2* next;
-        E2* prev;
 };
 
 // q beszúrása r elé
@@ -28,7 +29,7 @@ void follow(E2* p, E2* q) {
     q->prev = p;
     q->next = r;
     r->prev = q;
-    p->next = r;
+    p->next = r->prev;
 }
 
 // q kifűzése
@@ -41,11 +42,11 @@ void unlink(E2* q) {
     q->prev = q->next;
 }
 
-void write(E2 l) {
+/*void write(E2 l) {
     E2 *p = l.next;
     while (p != &l) {
         cout << p->key << " ";
         p = p->next;
     }
     cout << endl;
-}
+}*/
