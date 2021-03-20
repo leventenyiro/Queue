@@ -6,7 +6,7 @@
 using namespace std;
 
 class Queue {
-    private:
+    private: // kéne size adattag (length nem tartalmazhatna ciklust)
         E2 *last;
 
     public:
@@ -20,7 +20,7 @@ class Queue {
             follow(last, q);
         }
 
-        int rem() {
+        int rem() { // memory leak problem
             if (last->prev != last) {
                 int x = last->prev->key;
                 unlink(last->prev);
